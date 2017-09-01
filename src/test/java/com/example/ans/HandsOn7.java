@@ -65,6 +65,7 @@ public class HandsOn7 {
 	public void TryWithResourceを使う() {
 		System.out.println("TryWithResourceを使う ------------");
 		List<String> lines = new ArrayList<>();
+
 		File file = new File(url.getPath());
 		try (FileReader fr = new FileReader(file);
 				 BufferedReader bf = new BufferedReader(fr)) {
