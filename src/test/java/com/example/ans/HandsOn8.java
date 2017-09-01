@@ -2,6 +2,7 @@ package com.example.ans;
 
 import org.junit.Test;
 
+import java.time.*;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -12,6 +13,66 @@ import java.util.stream.Stream;
 public class HandsOn8 {
 
 	private List<String> words = Arrays.asList("Hello", "Hi", "Bye", "Good Night");
+
+	@Test
+	public void 今日の日付と時間と日時を作る() {
+		LocalDate date = LocalDate.now();
+		System.out.println(date);
+
+		LocalTime time = LocalTime.now();
+		System.out.println(time);
+
+		// 今年は何年？
+		int year = date.getYear();
+		System.out.println("今年は" + year + "年");
+
+		// 今は何時？
+		int hour = time.getHour();
+		System.out.println("今は" + hour + "時");
+
+		// 今日は何曜日？
+		DayOfWeek dow = date.getDayOfWeek();
+		System.out.println("今日は" + dow);
+	}
+
+	@Test
+	public void 日時を操作する() {
+		// 2016年3月1日12時30分
+		LocalDateTime ldt1 = LocalDateTime.of(2016, 3, 1, 12, 30);
+		System.out.println(ldt1);
+
+		// ldt1の一日前のインスタンスを取得
+		LocalDateTime ldt2 = ldt1.minusDays(1);
+		System.out.println("一日前は" + ldt2);
+
+		// ldt1を2017年に上書きしたインスタンスを取得
+		LocalDateTime ldt3 = ldt1.withYear(2017);
+		System.out.println(ldt3);
+
+		// ldt3の一日前のインスタンスを取得
+		LocalDateTime ldt4 = ldt3.minusDays(1);
+		System.out.println("一日前は" + ldt4);
+	}
+
+	@Test
+	public void 日時の差を計算する() {
+		LocalTime time1 = LocalTime.of(2, 48);
+		LocalTime time2 = LocalTime.now();
+
+		// time1とtime2の時間差をとる
+		Duration duration = Duration.between(time1, time2);
+		System.out.println(time1.toString() + "から" + duration.toMinutes() + "分経過");
+		System.out.println(time1.toString() + "から" + duration.toHours() + "時間" + duration.toMinutes() % 60 + "分経過");
+
+		// date1には、皆さんの誕生日を入れて下さい
+		LocalDate date1 = LocalDate.of(1980, 8, 20);
+		LocalDate date2 = LocalDate.now();
+
+		// date1とdate2の日付差をとる
+		Period period = Period.between(date1, date2);
+		System.out.println(date1.toString() + "から" + period.toTotalMonths() + "ヶ月経過");
+		System.out.println("あなたの年齢は" + period.toTotalMonths() / 12 + "歳");
+	}
 
 
 	@Test
