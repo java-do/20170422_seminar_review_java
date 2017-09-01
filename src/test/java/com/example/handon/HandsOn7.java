@@ -1,4 +1,4 @@
-package com.example.ans;
+package com.example.handon;
 
 import org.junit.Test;
 
@@ -20,13 +20,16 @@ public class HandsOn7 {
 	private URL url = getClass().getResource("/profile.txt");
 
 	@Test
-	public void TryWithResourceを使う() {
-		System.out.println("TryWithResourceを使う ------------");
+	public void 昔のテキストファイル読み込み() {
+		// Java5からはScannerを使う方法もあるが、あえてReaderを使っている
+		System.out.println("昔のテキストファイル読み込み ------------");
 		List<String> lines = new ArrayList<>();
-
 		File file = new File(url.getPath());
-		try (FileReader fr = new FileReader(file);
-				 BufferedReader bf = new BufferedReader(fr)) {
+		FileReader fr = null;
+		BufferedReader bf = null;
+		try {
+			fr = new FileReader(file);
+			bf = new BufferedReader(fr);
 			while (true) {
 				String line = bf.readLine();
 				if (line == null) {
@@ -36,10 +39,33 @@ public class HandsOn7 {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (bf != null) {
+					bf.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				if (fr != null) {
+					fr.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
+
 		for (String line : lines) {
 			System.out.println(line);
 		}
+	}
+
+	@Test
+	public void TryWithResourceを使う() {
+		System.out.println("TryWithResourceを使う ------------");
+		List<String> lines = new ArrayList<>();
+
 	}
 
 	@Test
@@ -48,23 +74,6 @@ public class HandsOn7 {
 		List<String> lines = new ArrayList<>();
 		URI uri = URI.create(url.toString());
 
-		Path path = Paths.get(uri);
-		// ↓ 第2引数で文字コードも指定できる
-		try (BufferedReader bf = Files.newBufferedReader(path)) {
-			while (true) {
-				String line = bf.readLine();
-				if (line == null) {
-					break;
-				}
-				lines.add(line);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		for (String line : lines) {
-			System.out.println(line);
-		}
 	}
 
 	@Test
@@ -73,16 +82,7 @@ public class HandsOn7 {
 		List<String> lines = null;
 		URI uri = URI.create(url.toString());
 
-		Path path = Paths.get(uri);
-		try {
-			lines = Files.readAllLines(path);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
-		for (String line : lines) {
-			System.out.println(line);
-		}
 	}
 
 }

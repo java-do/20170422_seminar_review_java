@@ -51,7 +51,6 @@ public void NIO2を使う() {
   URI uri = URI.create(url.toString());
 
   Path path = Paths.get(uri);
-  // 第2引数で文字コードも指定できる
   try (BufferedReader bf = Files.newBufferedReader(path)) {
     while (true) {
       String line = bf.readLine();
@@ -152,7 +151,7 @@ public void 要素を単語の長さに変えてListに集める() {
 
 メソッドを実行して、動作を確認しましょう。
 
-③ `com.example.handson` パッケージの中の、 `HandsOn8#要素を単語の長さに変えて5以上の数字だけをListに集める` を書き換えてみましょう。
+④ `com.example.handson` パッケージの中の、 `HandsOn8#要素を単語の長さに変えて5以上の数字だけをListに集める` を書き換えてみましょう。
 
 ```java
 @Test
@@ -168,7 +167,7 @@ public void 要素を単語の長さに変えて5以上の数字だけをListに
 
 メソッドを実行して、動作を確認しましょう。
 
-④ `com.example.handson` パッケージの中の、 `HandsOn8#要素を文字のリストに変えてListに集める` を書き換えてみましょう。
+⑤ `com.example.handson` パッケージの中の、 `HandsOn8#要素を文字のリストに変えてListに集める` を書き換えてみましょう。
 
 ```java
 @Test
@@ -184,7 +183,7 @@ public void 要素を文字のリストに変えてListに集める() {
 
 メソッドを実行して、動作を確認しましょう。
 
-⑤ `com.example.handson` パッケージの中の、 `HandsOn8#単語と文字数のMapに集める` を書き換えてみましょう。
+⑥ `com.example.handson` パッケージの中の、 `HandsOn8#単語と文字数のMapに集める` を書き換えてみましょう。
 
 ```java
 @Test
@@ -198,7 +197,7 @@ public void 単語と文字数のMapに集める() {
 
 メソッドを実行して、動作を確認しましょう。
 
-⑥ `com.example.handson` パッケージの中の、 `HandsOn8#一番短い単語を取得する` を書き換えてみましょう。
+⑦ `com.example.handson` パッケージの中の、 `HandsOn8#一番短い単語を取得する` を書き換えてみましょう。
 
 ```java
 @Test
@@ -215,7 +214,7 @@ public void 一番短い単語を取得する() {
 
 メソッドを実行して、動作を確認しましょう。
 
-⑦ `com.example.handson` パッケージの中の、 `HandsOn8#一番長い単語を取得する` を書き換えてみましょう。
+⑧ `com.example.handson` パッケージの中の、 `HandsOn8#一番長い単語を取得する` を書き換えてみましょう。
 
 ```java
 @Test
@@ -232,7 +231,7 @@ public void 一番長い単語を取得する() {
 
 メソッドを実行して、動作を確認しましょう。
 
-⑧ `com.example.handson` パッケージの中の、 `HandsOn8#単語の長さを合計する` を書き換えてみましょう。
+⑨ `com.example.handson` パッケージの中の、 `HandsOn8#単語の長さを合計する` を書き換えてみましょう。
 
 ```java
 @Test
@@ -248,7 +247,7 @@ public void 単語の長さを合計する() {
 
 メソッドを実行して、動作を確認しましょう。
 
-⑨  `com.example.handson` パッケージの中の、 `HandsOn8#異なる処理をするStreamを合成して実行する` を書き換えてみましょう。
+⑩  `com.example.handson` パッケージの中の、 `HandsOn8#異なる処理をするStreamを合成して実行する` を書き換えてみましょう。
 
 ```java
 @Test
