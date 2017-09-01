@@ -30,44 +30,50 @@ public class HandsOn8 {
 	}
 
 	@Test
-	public void 単語の長さが5以上のものだけをListに集める() {
+	public void 長さが5以上の単語だけをListに集める() {
 		List<String> filterdList = words.stream()
-			.filter(word -> word.length() >= 5)
+			.filter(word -> word.length() >= 5)  // Hello, Good Night
 			.collect(Collectors.toList());
+
 		System.out.println(filterdList);
 	}
 
 	@Test
-	public void 単語の長さのリストに変えてListに集める() {
+	public void 要素を単語の長さに変えてListに集める() {
 		List<Integer> lengthList = words.stream()
-			.map(word -> word.length())
+			.map(word -> word.length()) // 5, 2, 3, 10
 			.collect(Collectors.toList());
+
 		System.out.println(lengthList);
 	}
 
 	@Test
-	public void 単語の長さのリストに変えて5文字以上のものだけをListに集める() {
+	public void 要素を単語の長さに変えて5以上の数字だけをListに集める() {
 		List<Integer> lengthList = words.stream()
-			.map(word -> word.length())
+			.map(word -> word.length())  // 5, 2, 3, 10
+			.filter(length -> length >= 5)  // 5, 10
 			.collect(Collectors.toList());
+
 		System.out.println(lengthList);
 	}
 
 	@Test
-	public void 文字のリストに変えてListに集める() {
+	public void 要素を文字のリストに変えてListに集める() {
 		List<String> chars = words.stream()
-			.map(word -> word.split(""))
-			.flatMap(word -> Arrays.stream(word))
+			.map(word -> word.split(""))  // {H, e, l, l, o}, {H, i}, ...
+			.flatMap(word -> Arrays.stream(word)) // H, e, l, l, o, H, i, ...
 			.collect(Collectors.toList());
+
 		System.out.println(chars);
 	}
 
 	@Test
-	public void 文字のリストに変えてListに集める_別解() {
+	public void 要素を文字のリストに変えてListに集める_別解() {
 		List<Character> chars = words.stream()
 			.flatMapToInt(String::chars)
 			.mapToObj(c -> ((char) c))
 			.collect(Collectors.toList());
+
 		System.out.println(chars);
 	}
 
@@ -75,6 +81,7 @@ public class HandsOn8 {
 	public void 単語と文字数のMapに集める() {
 		Map<String, Integer> map = words.stream()
 			.collect(Collectors.toMap(s -> s, s -> s.length()));
+
 		System.out.println(map);
 	}
 
@@ -84,7 +91,8 @@ public class HandsOn8 {
 		String ans = words.stream()
 			.sorted(Comparator.comparing(String::length))
 			.findFirst() //文字数の小さい順に並び替えたものから最初の一つ
-			.orElse(defaultStr); //もしnullだったら初期値を使う
+			.orElse(defaultStr); //もしnullだったら初期値を使う（Optional）
+
 		System.out.println(ans);
 	}
 
@@ -94,7 +102,8 @@ public class HandsOn8 {
 		String ans = words.stream()
 			.sorted(Comparator.comparing(String::length).reversed())
 			.findFirst() //文字数の大きい順に並び替えたものから最初の一つ
-			.orElse(defaultStr); //もしnullだったら初期値を使う
+			.orElse(defaultStr); //もしnullだったら初期値を使う（Optional）
+
 		System.out.println(ans);
 	}
 
@@ -104,9 +113,9 @@ public class HandsOn8 {
 		int ans = words.stream()
 			.map(word -> word.length())
 			.reduce(defaultInt, (x, y) -> x + y); // 0+5, 5+2, 7+3...
+
 		System.out.println(ans);
 	}
-
 
 	@Test
 	public void 異なる処理をするStreamを合成して実行する() {
