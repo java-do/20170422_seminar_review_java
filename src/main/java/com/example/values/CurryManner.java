@@ -3,20 +3,18 @@ package com.example.values;
 import java.util.Objects;
 
 public class CurryManner {
-	private final String prefecture;
+	private final String manner;
 
-	public CurryManner(String prefecture) {
-		if (Objects.isNull(prefecture)) {
-			throw new IllegalArgumentException("食べ方がnull");
+	public CurryManner(String manner) {
+		Objects.requireNonNull(manner, "manner がnull.");
+		if (manner.length() > 32) {
+			throw new IllegalArgumentException("manner は32文字以下.");
 		}
-		if (prefecture.length() > 32) {
-			throw new IllegalArgumentException("食べ方は32文字以下");
-		}
-		this.prefecture = prefecture;
+		this.manner = manner;
 	}
 
 	@Override
 	public String toString() {
-		return prefecture;
+		return manner;
 	}
 }
