@@ -56,6 +56,7 @@ public class Others {
 		o2.ifPresent(s -> System.out.println(s));
 
 		System.out.println("------------");
+		// nullの時は "nullです" を返す
 		System.out.println(o1.orElse("nullです"));
 		System.out.println(o2.orElse("nullです"));
 	}
