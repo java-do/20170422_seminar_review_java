@@ -19,7 +19,7 @@ public class App {
 			Path path = Paths.get(uri);
 			Files.lines(path)
 				.map(l -> l.split(","))
-				.map(a -> new CurryEater(a))
+				.map(CurryEater::new)
 //				.filter(CurryEater::isMinor)
 				.forEach(System.out::println);
 		} catch (IOException e) {

@@ -2,10 +2,7 @@ package com.example.ans;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static org.junit.Assert.assertTrue;
 
@@ -42,6 +39,21 @@ public class Others {
 		List<String> strs = Arrays.asList("Hello", "Duke");
 		System.out.println(String.join("_", strs));
 	}
+
+	// Java8 Optional
+	@Test
+	public void nullかもしれない値の取り扱い() {
+		String str1 = "a";
+		Optional<String> o1 = Optional.ofNullable(str1);
+
+		String str2 = null;
+		Optional<String> o2 = Optional.ofNullable(str2);
+
+		// nullじゃないときだけ実行される
+		o1.ifPresent(s -> System.out.println(s));
+		o2.ifPresent(s -> System.out.println(s));
+	}
+
 
 	class A {
 		private String x;
