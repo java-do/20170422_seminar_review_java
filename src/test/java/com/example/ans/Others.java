@@ -1,5 +1,6 @@
 package com.example.ans;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import org.junit.Test;
 
 import java.util.*;
@@ -49,9 +50,14 @@ public class Others {
 		String str2 = null;
 		Optional<String> o2 = Optional.ofNullable(str2);
 
-		// nullじゃないときだけ実行される
+		System.out.println("------------");
+		// nullじゃないときだけラムダ式が実行される
 		o1.ifPresent(s -> System.out.println(s));
 		o2.ifPresent(s -> System.out.println(s));
+
+		System.out.println("------------");
+		System.out.println(o1.orElse("nullです"));
+		System.out.println(o2.orElse("nullです"));
 	}
 
 
