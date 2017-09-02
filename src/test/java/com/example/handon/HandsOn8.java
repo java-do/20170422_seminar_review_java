@@ -38,7 +38,7 @@ public class HandsOn8 {
 
 	@Test
 	public void Streamとこれまでの違い() {
-		
+
 	}
 
 	@Test
