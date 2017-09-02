@@ -6,11 +6,9 @@ public class FullName {
 	private final String fullName;
 
 	public FullName(String name) {
-		if (Objects.isNull(name)) {
-			throw new IllegalArgumentException("氏名がnull");
-		}
+		Objects.requireNonNull(name, "name がnull.");
 		if (name.length() > 32) {
-			throw new IllegalArgumentException("氏名は32文字以下");
+			throw new IllegalArgumentException("氏名は32文字以下.");
 		}
 		this.fullName = name;
 	}
