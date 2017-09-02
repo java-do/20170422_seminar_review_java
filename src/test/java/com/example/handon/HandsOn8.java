@@ -16,7 +16,7 @@ public class HandsOn8 {
 	private List<String> words = Arrays.asList("Hello", "Hi", "Bye", "Good Night");
 
 	@Test
-	public void 今日の日付と時間と日時を作る() {
+	public void 今日の日付と時刻を作る() {
 
 	}
 

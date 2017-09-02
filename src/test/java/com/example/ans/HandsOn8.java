@@ -16,12 +16,12 @@ public class HandsOn8 {
 	private List<String> words = Arrays.asList("Hello", "Hi", "Bye", "Good Night");
 
 	@Test
-	public void 今日の日付と時間と日時を作る() {
+	public void 今日の日付と時刻を作る() {
 		// 日付の作成
 		LocalDate date = LocalDate.now();
 		System.out.println(date);
 
-		// 時間の作成
+		// 時刻の作成
 		LocalTime time = LocalTime.now();
 		System.out.println(time);
 
@@ -80,7 +80,7 @@ public class HandsOn8 {
 		LocalDate date1 = LocalDate.of(1980, 8, 20);
 		LocalDate date2 = LocalDate.now();
 
-		// date1とdate2の日付差をとる
+		// date1とdate2の年月差をとる
 		Period period = Period.between(date1, date2);
 		System.out.println(date1.toString() + "から" + period.toTotalMonths() + "ヶ月経過");
 		System.out.println("あなたの年齢は" + period.toTotalMonths() / 12 + "歳");
