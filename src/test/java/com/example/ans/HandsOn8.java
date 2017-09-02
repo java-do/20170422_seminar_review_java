@@ -3,6 +3,7 @@ package com.example.ans;
 import org.junit.Test;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -16,9 +17,11 @@ public class HandsOn8 {
 
 	@Test
 	public void 今日の日付と時間と日時を作る() {
+		// 日付の作成
 		LocalDate date = LocalDate.now();
 		System.out.println(date);
 
+		// 時間の作成
 		LocalTime time = LocalTime.now();
 		System.out.println(time);
 
@@ -33,6 +36,15 @@ public class HandsOn8 {
 		// 今日は何曜日？
 		DayOfWeek dow = date.getDayOfWeek();
 		System.out.println("今日は" + dow);
+	}
+
+	@Test
+	public void 日時の表示方法を加工する() {
+		LocalDateTime ldt = LocalDateTime.now();
+		System.out.println(ldt);
+
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy年MM月dd日h時m分s秒");
+		System.out.println(dtf.format(ldt));
 	}
 
 	@Test

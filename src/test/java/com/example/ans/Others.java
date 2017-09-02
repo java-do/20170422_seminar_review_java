@@ -2,9 +2,6 @@ package com.example.ans;
 
 import org.junit.Test;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.*;
 
 import static org.junit.Assert.assertTrue;
@@ -62,30 +59,6 @@ public class Others {
 		System.out.println(o1.orElse("nullです"));
 		System.out.println(o2.orElse("nullです"));
 	}
-
-	@Test
-	public void DateTimeからsqlパッケージのクラスに変換() {
-
-		// LocalDateTime から java.sql.Timestamp
-		LocalDateTime ldt1 = LocalDateTime.now();
-		java.sql.Timestamp sqlTime = java.sql.Timestamp.valueOf(ldt1);
-
-		// java.sql.Timestamp から LocalDateTime
-		LocalDateTime ldt2 = sqlTime.toLocalDateTime();
-
-		// LocalDate から java.sql.Date
-		LocalDate date1 = LocalDate.now();
-		java.sql.Date sqlDate = java.sql.Date.valueOf(date1);
-
-		// java.sql.Date から LocalDate
-		LocalDate date2 = sqlDate.toLocalDate();
-
-		// LocalDate, LocalTime, LocalDateTime
-		LocalDateTime ldt = LocalDateTime.of(LocalDate.now(), LocalTime.now());
-		LocalDate date = ldt.toLocalDate();
-		LocalTime time = ldt.toLocalTime();
-	}
-
 
 	class A {
 		private String x;
